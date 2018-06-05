@@ -1,8 +1,9 @@
 
 [![Travis build status](https://travis-ci.org/abdhigithub/hatch.svg?branch=master)](https://travis-ci.org/abdhigithub/hatch)
 
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/abdhigithub/hatch?branch=master&svg=true)](https://ci.appveyor.com/project/abdhigithub/hatch)
+[![Build status](https://ci.appveyor.com/api/projects/status/kd8ptwro18ak5imf/branch/master?svg=true)](https://ci.appveyor.com/project/abdhigithub/hatch/branch/master)
 
+<!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/hatch)](https://cran.r-project.org/package=hatch) -->
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 hatch
 =====

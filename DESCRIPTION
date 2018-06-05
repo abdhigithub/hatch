@@ -11,3 +11,7 @@ RoxygenNote: 6.0.1
 Imports:
     neurobase,
     oro.nifti
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
