@@ -1,13 +1,13 @@
 #' Create Landmarks
 #' @description This function creates landmark points for piecewise histogram matching
 #'
-#' @param rawdata
-#' @param i.min
-#' @param i.max
-#' @param i.s.min
-#' @param i.s.max
-#' @param h
-#' @param mask this is a test
+#' @param rawdata image
+#' @param i.min min for subj landmark
+#' @param i.max max for subj landmark
+#' @param i.s.min min for control landmark
+#' @param i.s.max max for control landmark
+#' @param h series or quantiles
+#' @param mask this is corresponding control mask obatined from ctrl_vox_create
 #' @importFrom stats quantile
 #' @return A vector of landmarks to be used for Histogram Matching
 #' @export

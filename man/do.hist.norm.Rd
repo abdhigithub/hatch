@@ -10,6 +10,18 @@ do.hist.norm(rawdata, i.min, i.max, i.s.min, i.s.max, h, m, ctrl_mask,
 \arguments{
 \item{rawdata}{The subject image to be matched}
 
+\item{i.min}{min for subj landmark}
+
+\item{i.max}{max for subj landmark}
+
+\item{i.s.min}{min for control landmark}
+
+\item{i.s.max}{max for control landmark}
+
+\item{h}{series or quantiles}
+
+\item{m}{vector of landmarks obtained from control mask}
+
 \item{ctrl_mask}{Mask created by subsampling to obtain clean landmarks}
 
 \item{rangemax}{default = 255, Image intensities will range between 0 and 255}

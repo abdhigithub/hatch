@@ -2,10 +2,12 @@
 
 #' Control Voxel Create
 #' @description  This function creates a mask to obtain ideal tissue to create landmarks for histogram matching
-#' @param p_map_infile list or vector of size 3, for the three probabilty maps corresponding to each tissue class
 #' @param threshold cutoff probabilty value to choose good quality tissues, default = 0.99
 #' @param samples vector of size 3 determining the subsample sizes for White Matter, Grey Matter and CSF respectively, default =c(1500,1200,1000)
 #' @param outfile outputs a mask of selected controls voxels to create intensity landmarks
+#' @param wm_pve White Matter partial volume probabilty map or path
+#' @param gm_pve Grey Matter partial volume probabilty map or path
+#' @param csf_pve CSF partial volume probabilty map or path
 #' @importFrom neurobase readnii niftiarr writenii
 #'
 #' @return mask image of voxels where total number of 1's is sum(samples)
@@ -13,7 +15,7 @@
 #'
 
 ###### Add example later
-ctrl_vox_create <- function(p_map_infile,threshold=0.99,samples= c(1500,1200,1000),outfile=NULL){
+ctrl_vox_create <- function(wm_pve,gm_pve,csf_pve,threshold=0.99,samples= c(1500,1200,1000),outfile=NULL){
   ##### bunch of if statements to check the format of prob_maps
   # if(length(p_map_infile)==1){
   #   if(!dir.exists(p_map_infile)) stop("Directory of Probability Maps does not exist!")
@@ -22,12 +24,9 @@ ctrl_vox_create <- function(p_map_infile,threshold=0.99,samples= c(1500,1200,100
   #   if(length(prob_find)==0) stop("Probability Maps with suffix pve do not exist. Please enter a list of 3 prob map nifti images or enter a vector of paths corresponding to WM,GM and CSF probability maps in that order!")
   # }
 
-  if(is.vector(p_map_infile) & length(p_map_infile)==3){
-    prob_list <- lapply(p_map_infile,check_object)
-  }
-  if(is.list(p_map_infile) & length(p_map_infile)==3){
-    prob_list <- lapply(p_map_infile,check_object)
-  }
+
+    prob_list <- lapply(list(wm_pve,gm_pve,csf_pve),check_object)
+
 
   #### prob_maps_infile is a list wm,gm,csf.. however the order does not matter
 

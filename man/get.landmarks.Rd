@@ -7,7 +7,19 @@
 get.landmarks(rawdata, i.min, i.max, i.s.min, i.s.max, h, mask)
 }
 \arguments{
-\item{mask}{this is a test}
+\item{rawdata}{image}
+
+\item{i.min}{min for subj landmark}
+
+\item{i.max}{max for subj landmark}
+
+\item{i.s.min}{min for control landmark}
+
+\item{i.s.max}{max for control landmark}
+
+\item{h}{series or quantiles}
+
+\item{mask}{this is corresponding control mask obatined from ctrl_vox_create}
 }
 \value{
 A vector of landmarks to be used for Histogram Matching

@@ -3,15 +3,17 @@
 #' hatch
 #' @description Takes in subject input file and healthy control files to produce matched intensity histograms
 #' @param infile Patient Image Nifti file  or path (T1, T2, T1gad or FLAIR)
-#' @param prob_maps_infile List or vector of 3 partial volume probability maps paths associated with the three different types of Tissue Classes or a list of the 3 nifti files
 #' @param ctrl_vox Control Mask created using healthy control of subsampled voxles
 #' @param ctrl_img Healthy Control image coreesponding to the modality of the subject
-#' @param i.min
-#' @param i.max
-#' @param i.s.min
-#' @param i.s.max
+#' @param i.min min for subj landmark
+#' @param i.max max for subj landmark
+#' @param i.s.min min for control landmark
+#' @param i.s.max max for control landmark
 #' @param h series or quantiles
-#' @param rangemax
+#' @param wm_pve White Matter partial volume probabilty map or path
+#' @param gm_pve Grey Matter partial volume probabilty map or path
+#' @param csf_pve CSF partial volume probabilty map or path
+#' @param rangemax Range of intensities are between 0 and rangemax default=255
 #' @param threshold cutoff probabilty value to choose good quality tissues, default = 0.99
 #' @param samples vector of size 3 determining the subsample sizes for White Matter, Grey Matter and CSF respectively, default =c(1500,1200,1000)
 #' @param outfile path to save output matched class to a particular location
@@ -21,7 +23,7 @@
 #' @export
 #'
 
-hatch <- function(infile,prob_maps_infile,ctrl_vox,ctrl_img,i.min =0.01, i.max=0.99,i.s.min=0,i.s.max =1,h = seq(0.1, 0.9, by = 0.1),rangemax=255,threshold=0.97,samples= c(1500,1200,1000),outfile=NULL){
+hatch <- function(infile,wm_pve,gm_pve,csf_pve,ctrl_vox,ctrl_img,i.min =0.01, i.max=0.99,i.s.min=0,i.s.max =1,h = seq(0.1, 0.9, by = 0.1),rangemax=255,threshold=0.99,samples= c(1500,1200,1000),outfile=NULL){
 
   infile <- check_object(infile)
   ctrl_vox <- check_object(ctrl_vox)
@@ -29,7 +31,7 @@ hatch <- function(infile,prob_maps_infile,ctrl_vox,ctrl_img,i.min =0.01, i.max=0
 
 
   #### for incoming subject create control mask
-  subj_ctrl_vox <- ctrl_vox_create(p_map_infile=prob_maps_infile,threshold=threshold,samples=samples)
+  subj_ctrl_vox <- ctrl_vox_create(wm_pve,gm_pve,csf_pve,threshold=threshold,samples=samples)
 
   #### Getting landmarks and Hist Match
 
@@ -37,7 +39,7 @@ hatch <- function(infile,prob_maps_infile,ctrl_vox,ctrl_img,i.min =0.01, i.max=0
   norm_img  <- do.hist.norm(rawdata=infile,i.min, i.max, i.s.min, i.s.max, h,m,ctrl_mask=  subj_ctrl_vox,rangemax=rangemax)
 
   if(!is.null(outfile)){
-    writenii(norm_img, file=outfile) }
+    writenii(norm_img, filename=outfile) }
 
   return(norm_img)
 

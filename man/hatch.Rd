@@ -4,21 +4,35 @@
 \alias{hatch}
 \title{hatch}
 \usage{
-hatch(infile, prob_maps_infile, ctrl_vox, ctrl_img, i.min = 0.01,
+hatch(infile, wm_pve, gm_pve, csf_pve, ctrl_vox, ctrl_img, i.min = 0.01,
   i.max = 0.99, i.s.min = 0, i.s.max = 1, h = seq(0.1, 0.9, by = 0.1),
-  rangemax = 255, threshold = 0.97, samples = c(1500, 1200, 1000),
+  rangemax = 255, threshold = 0.99, samples = c(1500, 1200, 1000),
   outfile = NULL)
 }
 \arguments{
 \item{infile}{Patient Image Nifti file  or path (T1, T2, T1gad or FLAIR)}
 
-\item{prob_maps_infile}{List or vector of 3 partial volume probability maps paths associated with the three different types of Tissue Classes or a list of the 3 nifti files}
+\item{wm_pve}{White Matter partial volume probabilty map or path}
+
+\item{gm_pve}{Grey Matter partial volume probabilty map or path}
+
+\item{csf_pve}{CSF partial volume probabilty map or path}
 
 \item{ctrl_vox}{Control Mask created using healthy control of subsampled voxles}
 
 \item{ctrl_img}{Healthy Control image coreesponding to the modality of the subject}
 
+\item{i.min}{min for subj landmark}
+
+\item{i.max}{max for subj landmark}
+
+\item{i.s.min}{min for control landmark}
+
+\item{i.s.max}{max for control landmark}
+
 \item{h}{series or quantiles}
+
+\item{rangemax}{Range of intensities are between 0 and rangemax default=255}
 
 \item{threshold}{cutoff probabilty value to choose good quality tissues, default = 0.99}
 

@@ -1,9 +1,9 @@
 Package: hatch
-Version: 0.0.0.9000
-Title: What the Package Does (One Line, Title Case)
-Description: What the package does (one paragraph).
-Authors@R: person("First", "Last", , "first.last@example.com", c("aut", "cre"))
-License: What license it uses
+Version: 0.0.1
+Title: Histogram-matching After Tissue Classification to a Healthy control
+Description: Intensity Normalization alternate to regular histogram matching.
+Authors@R: person("Abdhi", "Sarkar", , "abdhi@pennmedicine.upenn.edu", c("aut", "cre"))
+License: GPL-2
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true

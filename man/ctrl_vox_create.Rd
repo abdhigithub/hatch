@@ -4,11 +4,15 @@
 \alias{ctrl_vox_create}
 \title{Control Voxel Create}
 \usage{
-ctrl_vox_create(p_map_infile, threshold = 0.99, samples = c(1500, 1200,
-  1000), outfile = NULL)
+ctrl_vox_create(wm_pve, gm_pve, csf_pve, threshold = 0.99, samples = c(1500,
+  1200, 1000), outfile = NULL)
 }
 \arguments{
-\item{p_map_infile}{list or vector of size 3, for the three probabilty maps corresponding to each tissue class}
+\item{wm_pve}{White Matter partial volume probabilty map or path}
+
+\item{gm_pve}{Grey Matter partial volume probabilty map or path}
+
+\item{csf_pve}{CSF partial volume probabilty map or path}
 
 \item{threshold}{cutoff probabilty value to choose good quality tissues, default = 0.99}
 

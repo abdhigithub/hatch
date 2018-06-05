@@ -4,12 +4,12 @@
 #' Histogram Matching Piecewise Algorithm
 #'
 #' @param rawdata The subject image to be matched
-#' @param i.min
-#' @param i.max
-#' @param i.s.min
-#' @param i.s.max
-#' @param h
-#' @param m
+#' @param i.min min for subj landmark
+#' @param i.max max for subj landmark
+#' @param i.s.min min for control landmark
+#' @param i.s.max max for control landmark
+#' @param h series or quantiles
+#' @param m vector of landmarks obtained from control mask
 #' @param ctrl_mask Mask created by subsampling to obtain clean landmarks
 #' @param rangemax default = 255, Image intensities will range between 0 and 255
 #'

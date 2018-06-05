@@ -1,7 +1,7 @@
 
 #' Check_Object function
 #' @description to verify whether NIFTI or path
-#' @param object
+#' @param object Image or path input
 #' @importFrom neurobase readnii
 #' @importFrom oro.nifti is.nifti
 #' @return An image, either same as input or read from path

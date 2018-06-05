@@ -6,6 +6,9 @@
 \usage{
 check_object(object)
 }
+\arguments{
+\item{object}{Image or path input}
+}
 \value{
 An image, either same as input or read from path
 }
