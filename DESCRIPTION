@@ -10,7 +10,8 @@ ByteCompile: true
 RoxygenNote: 6.0.1
 Imports:
     neurobase,
-    oro.nifti
+    oro.nifti,
+    stats
 Suggests: 
     knitr,
     rmarkdown

@@ -5,19 +5,16 @@
 
 <!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/hatch)](https://cran.r-project.org/package=hatch) -->
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-hatch
-=====
+hatch - Histogram matching After Tissue Classification to a Healthy control
+---------------------------------------------------------------------------
 
-The goal of hatch is to ...
+Intensity Normalization in MRI brain images is am important pre-processing step for any rigirous statistical methodology, since the images are acquired in arbitrary units. Regular Histogram Matching (Nyul et. al, 1999) techniques tend to misclassify a significant amount of brain tissue to ensure that all the histograms look similar.
 
-Installation
-------------
+Hatch essentially sub-samples different tissues from the healthy portions of the brain and parse them through the piece-wise transformation which is applied to the entire brain. We hope that most of the inhomogeneity due to pathology will be maintained while trying to normalize healthy brain tissue, to render the intensities more compareable between different subjects. (This method was specifically designed for Patient MRI images with Glioblastomas)
 
-You can install the released version of hatch from [CRAN](https://CRAN.R-project.org) with:
+The method is suitable for most modalities (T1, T2, FLAIR, T1(post contrast) etc.. ) as long as a suitable healthy template /control exists for that corresponding modality.
 
-``` r
-install.packages("hatch")
-```
+### Installation
 
 And the development version from [GitHub](https://github.com/) with:
 
@@ -26,32 +23,8 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("abdhigithub/hatch")
 ```
 
-Example
--------
+This is yet to be released on [CRAN](https://CRAN.R-project.org) repository.
 
-This is a basic example which shows you how to solve a common problem:
+### Example
 
-``` r
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+I have included examples and a short tutorial in the [vignette here](https://github.com/abdhigithub/hatch/blob/master/vignettes/hatch_tutorial.Rmd).
