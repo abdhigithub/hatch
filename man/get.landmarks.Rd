@@ -4,10 +4,10 @@
 \alias{get.landmarks}
 \title{Create Landmarks}
 \usage{
-get.landmarks(rawdata, i.min, i.max, i.s.min, i.s.max, h, mask)
+get.landmarks(data, i.min, i.max, i.s.min, i.s.max, h, mask)
 }
 \arguments{
-\item{rawdata}{image}
+\item{data}{image}
 
 \item{i.min}{min for subj landmark}
 
