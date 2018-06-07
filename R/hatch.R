@@ -35,7 +35,7 @@ hatch <- function(infile,wm_pve,gm_pve,csf_pve,ctrl_vox,ctrl_img,i.min =0.01, i.
 
   #### Getting landmarks and Hist Match
 
-  m=get.landmarks(rawdata=ctrl_img,i.min, i.max, i.s.min, i.s.max, c(0.01,h,0.99),mask=ctrl_vox)
+  m=get.landmarks(data=ctrl_img,i.min, i.max, i.s.min, i.s.max, c(0.01,h,0.99),mask=ctrl_vox)
   norm_img  <- do.hist.norm(rawdata=infile,i.min, i.max, i.s.min, i.s.max, h,m,ctrl_mask=subj_ctrl_vox,rangemax=rangemax)
 
   if(!is.null(outfile)){
