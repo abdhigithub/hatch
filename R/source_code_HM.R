@@ -28,19 +28,12 @@ do.hist.norm <-
            ctrl_mask,rangemax=1) {
     brain_mask <- niftiarr(rawdata,0)
     brain_mask[rawdata> min(rawdata)]<- 1
-    m.obs <- quantile(rawdata[brain_mask > 0], probs = c(i.min, h, i.max))
+    m.obs <- c(0,quantile(rawdata[ctrl_mask ==1 ], probs = c(i.min, h, i.max)),max(rawdata))
     m.withends <- c(i.s.min, m, i.s.max)
     transformed.data <- rawdata
     #transformed.data2 <- rawdata[ctrl_mask>0]
 
-    transformed.data[transformed.data <=
-                       quantile(rawdata[brain_mask > 0],
-                                probs = i.min)] <- i.s.min
-    transformed.data[transformed.data >=
-                       quantile(rawdata[brain_mask > 0],
-                                probs = i.max)] <- i.s.max
-
-    for (hist.section.i in 1:(length(h)+1)) {
+    for (hist.section.i in 1:(length(h)+3)) {
       which.data <-
         (rawdata[brain_mask > 0] < m.obs[hist.section.i+1]) &
         (rawdata[brain_mask > 0] >= m.obs[hist.section.i])
@@ -53,6 +46,11 @@ do.hist.norm <-
 
 
     }
+
+
+    transformed.data[transformed.data==max(transformed.data)] <- 1
+
+
     return(transformed.data*rangemax)
     #return(list(long=transformed.data,short=transformed.data2))
   }
