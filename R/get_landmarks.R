@@ -1,7 +1,7 @@
 #' Create Landmarks
 #' @description This function creates landmark points for piecewise histogram matching
 #'
-#' @param rawdata image
+#' @param data image
 #' @param i.min min for subj landmark
 #' @param i.max max for subj landmark
 #' @param i.s.min min for control landmark
@@ -13,8 +13,7 @@
 #' @export
 #'
 
-get.landmarks <- function(rawdata, i.min, i.max, i.s.min, i.s.max, h, mask) {
-  scaled.data <- (rawdata-quantile(rawdata[mask>0],i.min)+i.s.min)/quantile(rawdata[mask>0],i.max)*i.s.max
+get.landmarks <-function(data, i.min, i.max, i.s.min, i.s.max, h, mask) {
+  scaled.data <- (data-quantile(data[data>0],i.s.min)+i.s.min)/quantile(data[data>0],i.s.max)*i.s.max
   return(quantile(scaled.data[mask>0], probs=h))
 }
-
