@@ -26,7 +26,7 @@ ctrl_vox_create <- function(wm_pve,gm_pve,csf_pve,threshold=0.99,samples= c(1500
 
 
     prob_list <- lapply(list(wm_pve,gm_pve,csf_pve),check_object)
-
+   samples <- sort(samples,decreasing = T)
 
   #### prob_maps_infile is a list wm,gm,csf.. however the order does not matter
 

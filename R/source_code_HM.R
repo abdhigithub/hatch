@@ -11,7 +11,7 @@
 #' @param h series or quantiles
 #' @param m vector of landmarks obtained from control mask
 #' @param ctrl_mask Mask created by subsampling to obtain clean landmarks
-#' @param rangemax default = 255, Image intensities will range between 0 and 255
+#' @param rangemax default = 1, Image intensities will range between 0 and 255
 #'
 #' @return Returns Normalized image
 #' @export

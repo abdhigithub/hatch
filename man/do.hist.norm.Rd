@@ -24,7 +24,7 @@ do.hist.norm(rawdata, i.min, i.max, i.s.min, i.s.max, h, m, ctrl_mask,
 
 \item{ctrl_mask}{Mask created by subsampling to obtain clean landmarks}
 
-\item{rangemax}{default = 255, Image intensities will range between 0 and 255}
+\item{rangemax}{default = 1, Image intensities will range between 0 and 255}
 }
 \value{
 Returns Normalized image
